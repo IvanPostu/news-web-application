@@ -60,6 +60,7 @@ $bgColor: #222f3e;
     align-items: center;
     justify-content: flex-end;
     transition: 0.7s;
+    z-index: 5;
 
     @media screen and (max-width: 800px) {
       width: 100%;

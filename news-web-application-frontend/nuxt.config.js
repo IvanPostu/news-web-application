@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'news-web-application-frontend',
+    title: 'Online news',
     htmlAttrs: {
       lang: 'en',
     },
@@ -31,8 +31,15 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
+  serverMiddleware: ['~/api/exampleMiddleware'],
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
+    },
+  },
   server: {
     host: '0.0.0.0',
   },
